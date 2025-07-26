@@ -4,7 +4,7 @@
     <displayName><![CDATA[AWS S3 CDN cloud]]></displayName>
     <version><![CDATA[1.0.0]]></version>
     <description><![CDATA[Uploads media files to AWS S3 CDN.]]></description>
-    <author><![CDATA[Alexey ZAV]]></author>
+    <author><![CDATA[YOURNAME]]></author>
     <tab><![CDATA[administration]]></tab>
     <is_configurable>1</is_configurable>
     <need_instance>1</need_instance>

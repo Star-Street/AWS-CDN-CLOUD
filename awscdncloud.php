@@ -11,7 +11,7 @@ class AwsCdnCloud extends Module
         $this->name = "awscdncloud";
         $this->tab = "administration";
         $this->version = "1.0.0";
-        $this->author = $this->l("Alexey ZAV");
+        $this->author = $this->l("YOURNAME");
         $this->need_instance = 0;
         $this->bootstrap = true;
         $this->ps_versions_compliancy = array("min" => "1.6", "max" => _PS_VERSION_);

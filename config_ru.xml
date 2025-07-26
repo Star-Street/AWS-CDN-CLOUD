@@ -4,7 +4,7 @@
     <displayName><![CDATA[AWS S3 CDN cloud]]></displayName>
     <version><![CDATA[1.0.0]]></version>
     <description><![CDATA[Подключает CDN сервер к вашему магазину. Позволяет выгружать изображения в объектное хранилище для экономии места.]]></description>
-    <author><![CDATA[Алексей ЗАВ]]></author>
+    <author><![CDATA[ВАШЕИМЯ]]></author>
     <tab><![CDATA[administration]]></tab>
     <is_configurable>1</is_configurable>
     <need_instance>1</need_instance>
