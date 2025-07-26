@@ -1,0 +1,22 @@
+# === PrestaShop ===
+/logs/
+/vendor/
+/composer.lock
+/package-lock.json
+
+# === IDE ===
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+/config_*.php
+.env
+*.env.local
+
+*.log
+*.tmp
+*.cache
+*.min.js
+*.min.css

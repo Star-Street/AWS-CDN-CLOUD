@@ -1,0 +1,21 @@
+{
+  "name": "prestashop/awscdncloud",
+  "description": "AWS S3 CDN cloud",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexey ZAV",
+      "email": "test@mail.ru"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "type": "prestashop-module",
+  "autoload": {
+    "psr-4": {
+      "AwsCdnCloud\\": ""
+    }
+  }
+}
+

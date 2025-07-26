@@ -1,0 +1,74 @@
+# Use this command: sudo composer dump-autoload -o
+# (need generate a new classes for this module)
+
+# imports:
+  # - { resource: ../common.yml }
+
+# Example watching in path: /src/PrestaShopBundle/Resources/config/services/adapter/***.yml
+services:
+  _defaults:
+    public: true
+
+  # admin page (/sell/catalog/brands/)
+  AwsCdnCloud\Override\ManufacturerLogoThumbnailProviderDecorator:
+    class: AwsCdnCloud\Override\ManufacturerLogoThumbnailProviderDecorator
+    decorates: prestashop.adapter.manufacturer.manufacturer_logo_thumbnail_provider
+    decoration_inner_name: 'AwsCdnCloud\Override\ManufacturerLogoThumbnailProviderDecorator.inner'
+    arguments:
+      # - '@AwsCdnCloud\Override\ManufacturerLogoThumbnailProviderDecorator.inner'
+      - '@prestashop.core.image.parser.image_tag_source_parser'
+
+  # admin page (/sell/catalog/brands/[id]/edit)
+  AwsCdnCloud\Override\GetManufacturerForEditingHandlerDecorator:
+    class: AwsCdnCloud\Override\GetManufacturerForEditingHandlerDecorator
+    decorates: prestashop.adapter.manufacturer.query_handler.get_manufacturer_for_editing
+    decoration_inner_name: 'AwsCdnCloud\Override\GetManufacturerForEditingHandlerDecorator.inner'
+    arguments:
+      - '@prestashop.core.image.parser.image_tag_source_parser'
+
+  # admin page (/sell/catalog/categories/[id]/edit)
+  AwsCdnCloud\Override\GetCategoryForEditingHandlerDecorator:
+    class: AwsCdnCloud\Override\GetCategoryForEditingHandlerDecorator
+    decorates: prestashop.adapter.category.query_handler.get_category_for_editing
+    decoration_inner_name: 'AwsCdnCloud\Override\GetCategoryForEditingHandlerDecorator.inner'
+    arguments:
+      # - '@AwsCdnCloud\Override\GetCategoryForEditingHandlerDecorator.inner'
+      - '@prestashop.core.image.parser.image_tag_source_parser'
+
+  # admin page (/sell/catalog/suppliers/)
+  # AwsCdnCloud\Override\SupplierLogoThumbnailProviderDecorator:
+  #   class: AwsCdnCloud\Override\SupplierLogoThumbnailProviderDecorator
+  #   decorates: prestashop.adapter.supplier.provider.supplier_logo
+  #   decoration_inner_name: 'AwsCdnCloud\Override\SupplierLogoThumbnailProviderDecorator.inner'
+  #   arguments:
+  #     # - '@AwsCdnCloud\Override\SupplierLogoThumbnailProviderDecorator.inner'
+  #     - '@prestashop.core.image.parser.image_tag_source_parser'
+  #     - '@prestashop.adapter.image_manager'
+
+  # admin page (/sell/catalog/suppliers/[id]/edit)
+  # AwsCdnCloud\Override\GetSupplierForEditingHandlerDecorator:
+  #   class: AwsCdnCloud\Override\GetSupplierForEditingHandlerDecorator
+  #   decorates: prestashop.adapter.supplier.query_handler.get_supplier_for_editing
+  #   decoration_inner_name: 'AwsCdnCloud\Override\GetSupplierForEditingHandlerDecorator.inner'
+  #   arguments:
+  #     # - '@AwsCdnCloud\Override\GetSupplierForEditingHandlerDecorator.inner'
+  #     - '@prestashop.core.image.parser.image_tag_source_parser'
+  #     - '@=service("prestashop.adapter.legacy.context").getContext().shop.id'
+
+  # admin page (/sell/carrier/)
+  # AwsCdnCloud\Override\CarrierThumbnailLogoProviderDecorator:
+  #   class: AwsCdnCloud\Override\CarrierThumbnailLogoProviderDecorator
+  #   decorates: prestashop.adapter.carrier.carrier_thumbnail_logo_provider
+  #   decoration_inner_name: 'AwsCdnCloud\Override\CarrierThumbnailLogoProviderDecorator.inner'
+  #   arguments:
+  #     - '@prestashop.core.image.parser.image_tag_source_parser'
+
+  # admin page (/sell/catalog/products/[id])
+  AwsCdnCloud\Override\ProductDataProviderDecorator:
+    class: AwsCdnCloud\Override\ProductDataProviderDecorator
+    decorates: prestashop.adapter.data_provider.product
+    decoration_inner_name: 'AwsCdnCloud\Override\ProductDataProviderDecorator.inner'
+    arguments:
+      - "@doctrine.orm.entity_manager"
+      - "@prestashop.adapter.image_manager"
+      - "@prestashop.static_cache.adapter"
